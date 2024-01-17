@@ -1,0 +1,336 @@
+/* style.css */
+/* This is the CSS file for the app */
+/* It contains the styles for the main window and the note window */
+
+/* The common styles for the title bars */
+.title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 30px;
+  padding: 0 10px;
+  -webkit-app-region: drag; /* Make the title bar draggable */
+  user-select: none; /* Disable the text selection */
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: white;
+}
+
+/* The common styles for the title bar buttons */
+.title-bar-button {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 2px;
+  background-color: transparent;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  -webkit-app-region: no-drag; /* Disable the dragging on the buttons */
+}
+
+/* The common styles for the title bar buttons on hover */
+.title-bar-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* The common styles for the title bar buttons on active */
+.title-bar-button:active {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* The styles for the main window title bar */
+#title-bar {
+  background-color: #2196f3;
+}
+
+/* The styles for the main window title */
+#title {
+  font-weight: bold;
+}
+
+/* The styles for the main window close button */
+#close-button {
+  background-color: #f44336;
+}
+
+/* The styles for the main window close button on hover */
+#close-button:hover {
+  background-color: #e53935;
+}
+
+/* The styles for the main window close button on active */
+#close-button:active {
+  background-color: #d32f2f;
+}
+
+/* The styles for the notes list */
+#notes-list {
+  height: calc(100vh - 30px); /* Subtract the title bar height */
+  overflow-y: auto; /* Enable the vertical scrolling */
+  padding: 10px;
+  background-color: #f0f0f0;
+}
+
+/* The styles for the note elements in the list */
+.note {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* The styles for the note elements on hover */
+.note:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* The styles for the selected note element */
+.note.selected {
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* The styles for the note titles in the list */
+.note-title {
+  overflow: hidden; /* Hide the overflowed text */
+  white-space: nowrap; /* Prevent the text from wrapping */
+  text-overflow: ellipsis; /* Show the ellipsis for the overflowed text */
+}
+
+/* The styles for the note delete buttons in the list */
+.note-delete-button {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: transparent;
+  color: #f44336;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* The styles for the note delete buttons on hover */
+.note-delete-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* The styles for the note delete buttons on active */
+.note-delete-button:active {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* The styles for the add button */
+#add-button {
+  position: fixed; /* Position the button relative to the viewport */
+  right: 20px; /* Set the distance from the right edge */
+  bottom: 20px; /* Set the distance from the bottom edge */
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  background-color: #2196f3;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* The styles for the add button on hover */
+#add-button:hover {
+  background-color: #1e88e5;
+}
+
+/* The styles for the add button on active */
+#add-button:active {
+  background-color: #1976d2;
+}
+
+/* The styles for the more button */
+#more-button {
+  position: fixed; /* Position the button relative to the viewport */
+  left: 20px; /* Set the distance from the left edge */
+  bottom: 20px; /* Set the distance from the bottom edge */
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background-color: #2196f3;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* The styles for the more button on hover */
+#more-button:hover {
+  background-color: #1e88e5;
+}
+
+/* The styles for the more button on active */
+#more-button:active {
+  background-color: #1976d2;
+}
+
+/* The styles for the more menu */
+#more-menu {
+  position: fixed; /* Position the menu relative to the viewport */
+  left: 20px; /* Set the distance from the left edge */
+  bottom: 70px; /* Set the distance from the bottom edge */
+  width: 200px;
+  border: 1px solid #2196f3;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: none; /* Hide the menu by default */
+}
+
+/* The styles for the more menu when visible */
+#more-menu.visible {
+  display: block; /* Show the menu */
+}
+
+/* The styles for the more menu buttons */
+#more-menu button {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-bottom: 1px solid #2196f3;
+  background-color: transparent;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* The styles for the more menu buttons on hover */
+#more-menu button:hover {
+  background-color: #f0f0f0;
+}
+
+/* The styles for the more menu buttons on active */
+#more-menu button:active {
+  background-color: #e0e0e0;
+}
+
+/* The styles for the note window title bar */
+#note-title-bar {
+  background-color: #ffeb3b;
+}
+
+/* The styles for the note window title */
+#note-title {
+  font-weight: bold;
+}
+
+/* The styles for the note window close button */
+#note-close-button {
+  background-color: #f44336;
+}
+
+/* The styles for the note window close button on hover */
+#note-close-button:hover {
+  background-color: #e53935;
+}
+
+/* The styles for the note window close button on active */
+#note-close-button:active {
+  background-color: #d32f2f;
+}
+
+/* The styles for the note window pin button */
+#note-pin-button {
+  background-color: #4caf50;
+}
+
+/* The styles for the note window pin button on hover */
+#note-pin-button:hover {
+  background-color: #43a047;
+}
+
+/* The styles for the note window pin button on active */
+#note-pin-button:active {
+  background-color: #388e3c;
+}
+
+/* The styles for the note window settings button */
+#note-settings-button {
+  background-color: #2196f3;
+}
+
+/* The styles for the note window settings button on hover */
+#note-settings-button:hover {
+  background-color: #1e88e5;
+}
+
+/* The styles for the note window settings button on active */
+#note-settings-button:active {
+  background-color: #1976d2;
+}
+
+/* The styles for the note content */
+#note-content {
+  height: calc(100vh - 30px); /* Subtract the title bar height */
+  padding: 10px;
+  font-family: 'Indie Flower', cursive; /* Use the Google font */
+  font-size: 18px;
+  overflow-y: auto; /* Enable the vertical scrolling */
+}
+
+/* The styles for the note settings menu */
+#note-settings-menu {
+  position: fixed; /* Position the menu relative to the viewport */
+  right: 20px;
+  top: 30px; /* Set the distance from the top edge */
+  width: 200px;
+  border: 1px solid #2196f3;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: none; /* Hide the menu by default */
+}
+
+/* The styles for the note settings menu when visible */
+#note-settings-menu.visible {
+  display: block; /* Show the menu */
+}
+
+/* The styles for the note settings menu buttons */
+#note-settings-menu button {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-bottom: 1px solid #2196f3;
+  background-color: transparent;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* The styles for the note settings menu buttons on hover */
+#note-settings-menu button:hover {
+  background-color: #f0f0f0;
+}
+
+/* The styles for the note settings menu buttons on active */
+#note-settings-menu button:active {
+  background-color: #e0e0e0;
+}
+
+/* The styles for the note settings menu buttons when selected */
+#note-settings-menu button.selected {
+  background-color: #2196f3;
+  color: white;
+}
+
+/* The styles for the note settings menu buttons when selected on hover */
+#note-settings-menu button.selected:hover {
+  background-color: #1e88e5;
+}

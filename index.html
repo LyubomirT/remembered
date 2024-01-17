@@ -1,0 +1,39 @@
+<!-- index.html -->
+<!-- This is the HTML file for the main window -->
+<!-- It contains the title bar, the notes list, and the add and more buttons -->
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sticky Notes</title>
+    <!-- Link the CSS file -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- The title bar -->
+    <div id="title-bar">
+      <!-- The title -->
+      <span id="title">Sticky Notes</span>
+      <!-- The buttons -->
+      <div id="title-bar-buttons">
+        <button id="minimize-button">-</button>
+        <button id="maximize-button">+</button>
+        <button id="close-button">×</button>
+      </div>
+    </div>
+    <!-- The notes list -->
+    <div id="notes-list"></div>
+    <!-- The add button -->
+    <button id="add-button">+</button>
+    <!-- The more button -->
+    <button id="more-button">⋮</button>
+    <!-- The more menu -->
+    <div id="more-menu">
+      <button id="wipe-data-button">Wipe Data</button>
+      <button id="guide-button">Guide</button>
+      <button id="source-code-button">Source Code</button>
+    </div>
+    <!-- Link the renderer script -->
+    <script src="renderer.js"></script>
+  </body>
+</html>

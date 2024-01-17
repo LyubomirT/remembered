@@ -2,7 +2,7 @@
   "name": "remembered-sticky",
   "version": "0.0.1",
   "description": "Sticky notes on your screen!",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "run": "electron ."
   },
@@ -20,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/LyubomirT/remembered/issues"
   },
-  "homepage": "https://github.com/LyubomirT/remembered#readme"
+  "homepage": "https://github.com/LyubomirT/remembered#readme",
+  "dependencies": {
+    "electron": "^28.1.3",
+    "electron-packager": "^17.1.2",
+    "uuid": "^9.0.1"
+  }
 }

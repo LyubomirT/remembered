@@ -1,0 +1,48 @@
+<!-- note.html -->
+<!-- This is the HTML file for the note window -->
+<!-- It contains the note title bar, the note content, and the note settings menu -->
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Note</title>
+    <!-- Link the CSS file -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Link the Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- The note title bar -->
+    <div id="note-title-bar">
+      <!-- The note title -->
+      <span id="note-title">Note</span>
+      <!-- The buttons -->
+      <div id="note-title-bar-buttons">
+        <button id="note-settings-button">⋮</button>
+        <button id="note-pin-button">📌</button>
+        <button id="note-close-button">×</button>
+      </div>
+    </div>
+    <!-- The note content -->
+    <div id="note-content" contenteditable="true"></div>
+    <!-- The note settings menu -->
+    <div id="note-settings-menu">
+      <label for="note-title-input">Title:</label>
+      <input id="note-title-input" type="text" />
+      <label for="note-color-input">Color:</label>
+      <input id="note-color-input" type="color" />
+      <button id="note-save-button">Save</button>
+    </div>
+    <!-- The note formatting buttons -->
+    <div id="note-formatting-buttons">
+      <button id="note-bold-button"><b>B</b></button>
+      <button id="note-italic-button"><i>I</i></button>
+      <button id="note-underline-button"><u>U</u></button>
+      <button id="note-list-button">•</button>
+      <button id="note-code-button"></></button>
+    </div>
+    <!-- Link the note script -->
+    <script src="note.js"></script>
+  </body>
+</html>
