@@ -1,39 +1,45 @@
 <!-- index.html -->
-<!-- This is the HTML file for the main window -->
-<!-- It contains the title bar, the notes list, and the add and more buttons -->
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8" />
     <title>Sticky Notes</title>
-    <!-- Link the CSS file -->
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    />
+    <script src="renderer.js"></script>
   </head>
   <body>
-    <!-- The title bar -->
-    <div id="title-bar">
-      <!-- The title -->
-      <span id="title">Sticky Notes</span>
-      <!-- The buttons -->
-      <div id="title-bar-buttons">
-        <button id="minimize-button">-</button>
-        <button id="maximize-button">+</button>
-        <button id="close-button">×</button>
+    <div id="container">
+      <div id="header">
+        <h1>Sticky Notes</h1>
+        <button id="more-button"><i class="fas fa-ellipsis-v"></i></button>
+      </div>
+      <div id="notes-list">
+        <button id="add-button"><i class="fas fa-plus"></i></button>
       </div>
     </div>
-    <!-- The notes list -->
-    <div id="notes-list"></div>
-    <!-- The add button -->
-    <button id="add-button">+</button>
-    <!-- The more button -->
-    <button id="more-button">⋮</button>
-    <!-- The more menu -->
-    <div id="more-menu">
-      <button id="wipe-data-button">Wipe Data</button>
-      <button id="guide-button">Guide</button>
-      <button id="source-code-button">Source Code</button>
+    <div id="more-menu" class="hidden">
+      <ul>
+        <li id="guide-button">Guide</li>
+        <li id="source-button">Source Code</li>
+        <li id="wipe-button">Wipe Data</li>
+      </ul>
     </div>
-    <!-- Link the renderer script -->
-    <script src="renderer.js"></script>
+    <div id="guide-modal" class="hidden">
+      <div id="guide-content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <button id="close-button">Close</button>
+      </div>
+    </div>
+    <div id="confirm-modal" class="hidden">
+      <div id="confirm-content">
+        <p>Are you sure you want to wipe all data?</p>
+        <button id="yes-button">Yes</button>
+        <button id="no-button">No</button>
+      </div>
+    </div>
   </body>
 </html>

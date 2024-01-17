@@ -1,49 +1,32 @@
 <!-- note.html -->
-<!-- This is the HTML file for the note window -->
-<!-- It contains the note title bar, the note content, and the note settings menu -->
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8" />
     <title>Note</title>
-    <!-- Link the CSS file -->
-    <link rel="stylesheet" href="style.css" />
-    <!-- Link the Google Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="note.css" />
+    <script src="note.js"></script>
   </head>
   <body>
-    <!-- The note title bar -->
-    <div id="note-title-bar">
-      <!-- The note title -->
-      <span id="note-title">Note</span>
-      <!-- The buttons -->
-      <div id="note-title-bar-buttons">
-        <button id="note-settings-button">⋮</button>
-        <button id="note-pin-button">📌</button>
-        <button id="note-close-button">×</button>
+    <div id="note">
+      <div id="note-header">
+        <button id="more-button"><i class="fas fa-ellipsis-v"></i></button>
       </div>
+      <div id="note-content" contenteditable="true"></div>
     </div>
-    <!-- The note content -->
-    <div id="note-content" contenteditable="true"></div>
-    <!-- The note settings menu -->
-    <div id="note-settings-menu">
-      <label for="note-title-input">Title:</label>
-      <input id="note-title-input" type="text" />
-      <label for="note-color-input">Color:</label>
-      <input id="note-color-input" type="color" />
-      <button id="note-save-button">Save</button>
+    <div id="more-menu" class="hidden">
+      <ul>
+        <li id="color-button">Color</li>
+        <li id="font-button">Font Color</li>
+      </ul>
     </div>
-    <!-- The note formatting buttons -->
-    <div id="note-formatting-buttons">
-      <button id="note-bold-button"><b>B</b></button>
-      <button id="note-italic-button"><i>I</i></button>
-      <button id="note-underline-button"><u>U</u></button>
-      <button id="note-list-button">•</button>
-      <!-- Use HTML escapes for the code button -->
-      <button id="note-code-button">&#60;&#47;&#62;</button>
+    <div id="color-picker" class="hidden">
+      <input type="color" id="color-input" />
+      <button id="color-apply">Apply</button>
     </div>
-    <!-- Link the note script -->
-    <script src="note.js"></script>
+    <div id="font-picker" class="hidden">
+      <input type="color" id="font-input" />
+      <button id="font-apply">Apply</button>
+    </div>
   </body>
 </html>
