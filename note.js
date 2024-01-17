@@ -27,7 +27,7 @@ ipcRenderer.on("note-data", (event, noteId, noteContent, noteColor, noteFontColo
   fontColor = noteFontColor;
   note.style.backgroundColor = color;
   noteContent.innerHTML = content;
-  noteContent.style.color = fontColor;
+  note.style.color = fontColor;
   colorInput.value = color;
   fontInput.value = fontColor;
 });
