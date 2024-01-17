@@ -1,100 +1,67 @@
-// main.js
+// Import modules
 const { app, BrowserWindow, ipcMain } = require("electron");
-const fs = require("fs");
 const path = require("path");
 
-let mainWindow;
-let noteWindows = {};
+// Define global variables
+let win = null; // The main window object
 
+// Create the main window
 function createWindow() {
-  mainWindow = new BrowserWindow({
+  // Create a new browser window
+  win = new BrowserWindow({
     width: 800,
     height: 600,
+    frame: false, // Hide the default frame
     webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false,
+      nodeIntegration: true, // Enable Node.js integration
+      contextIsolation: false, // Disable context isolation
     },
   });
-
-  mainWindow.loadFile("index.html");
-
-  mainWindow.on("closed", function () {
-    mainWindow = null;
-  });
+  // Load the index.html file
+  win.loadFile(path.join(__dirname, "index.html"));
+  // Open the devtools (optional)
+  // win.webContents.openDevTools();
 }
 
-function createNoteWindow(id, content, color, fontColor) {
-  let noteWindow = new BrowserWindow({
-    width: 300,
-    height: 300,
-    frame: false,
-    alwaysOnTop: true,
-    webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false,
-    },
+// Add event listener for the app ready event
+app.whenReady().then(() => {
+  createWindow(); // Create the main window
+  // Add event listener for the app activate event
+  app.on("activate", () => {
+    // If there are no windows, create one
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow();
+    }
   });
+});
 
-  noteWindow.loadFile("note.html");
-
-  noteWindow.webContents.on("did-finish-load", () => {
-    noteWindow.webContents.send("note-data", id, content, color, fontColor);
-  });
-
-  noteWindow.on("closed", function () {
-    delete noteWindows[id];
-  });
-
-  noteWindows[id] = noteWindow;
-}
-
-app.on("ready", createWindow);
-
-app.on("window-all-closed", function () {
+// Add event listener for the app window-all-closed event
+app.on("window-all-closed", () => {
+  // If the platform is not macOS, quit the app
   if (process.platform !== "darwin") {
     app.quit();
   }
 });
 
-app.on("activate", function () {
-  if (mainWindow === null) {
-    createWindow();
-  }
+// Add event listener for the ipc close-app message
+ipcMain.on("close-app", () => {
+  // Close the main window
+  win.close();
 });
 
-ipcMain.on("create-note", (event, id) => {
-  createNoteWindow(id, "", "#ffff88", "#000000");
+// Add event listener for the ipc minimize-app message
+ipcMain.on("minimize-app", () => {
+  // Minimize the main window
+  win.minimize();
 });
 
-ipcMain.on("open-note", (event, id, content, color, fontColor) => {
-  if (noteWindows[id]) {
-    noteWindows[id].focus();
+// Add event listener for the ipc maximize-app message
+ipcMain.on("maximize-app", () => {
+  // If the main window is maximized, restore it
+  if (win.isMaximized()) {
+    win.restore();
   } else {
-    createNoteWindow(id, content, color, fontColor);
-  }
-});
-
-ipcMain.on("update-note", (event, id, content, color, fontColor) => {
-  let notes = JSON.parse(fs.readFileSync("notes.json"));
-  notes[id] = { content, color, fontColor };
-  fs.writeFileSync("notes.json", JSON.stringify(notes));
-  if (noteWindows[id]) {
-    noteWindows[id].webContents.send("note-data", id, content, color, fontColor);
-  }
-});
-
-ipcMain.on("delete-note", (event, id) => {
-  let notes = JSON.parse(fs.readFileSync("notes.json"));
-  delete notes[id];
-  fs.writeFileSync("notes.json", JSON.stringify(notes));
-  if (noteWindows[id]) {
-    noteWindows[id].close();
-  }
-});
-
-ipcMain.on("wipe-data", (event) => {
-  fs.writeFileSync("notes.json", "{}");
-  for (let id in noteWindows) {
-    noteWindows[id].close();
+    // Otherwise, maximize it
+    win.maximize();
   }
 });

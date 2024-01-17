@@ -16,6 +16,13 @@
     align-items: center;
     justify-content: flex-end;
     padding: 10px;
+    /* Make it draggable */;
+    cursor: move;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    --webkit-app-region: drag;
   }
   
   #note-header button {
