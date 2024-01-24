@@ -12,6 +12,30 @@ const newNoteButton = document.getElementById('new-note-button')
 const saveNoteButton = document.getElementById('save-note-button')
 const deleteNoteButton = document.getElementById('delete-note-button')
 
+function lockEverything() {
+  noteTitle.disabled = true
+  noteContent.disabled = true
+  noteContent.contentEditable = false
+  noteContent.innerHTML = `
+    <h4>Open or create a note to get started! If you're feeling lost or confused, check out the official documentation or the handbook guide!</h4>
+  `
+  noteTitle.value = 'Nothing here... for now!'
+  // Set the custom "state" attribute to "disabled"
+  noteTitle.setAttribute('state', 'disabled')
+  noteContent.setAttribute('state', 'disabled')
+}
+
+lockEverything()
+
+function unlockEverything() {
+  noteTitle.disabled = false
+  noteContent.disabled = false
+  noteContent.contentEditable = true
+  // Set the custom "state" attribute to "enabled"
+  noteTitle.setAttribute('state', 'enabled')
+  noteContent.setAttribute('state', 'enabled')
+}
+
 // Define a variable to store the current note index
 let currentNoteIndex = null
 
@@ -43,6 +67,8 @@ function renderNoteList() {
         renderEditArea(notes[i])
         // Highlight the selected list item
         highlightNoteItem(li)
+        // Unlock everything
+        unlockEverything()
       })
     }
   })
@@ -84,6 +110,7 @@ function createNewNote() {
     content: '',
     date: date,
   }
+  unlockEverything()
   // Return the new note
   return note
 }
@@ -163,6 +190,8 @@ deleteNoteButton.addEventListener('click', () => {
     renderNoteList()
     // Clear the edit area
     clearEditArea()
+    // Lock everything
+    lockEverything()
     // Set the current note index to null
     currentNoteIndex = null
   })

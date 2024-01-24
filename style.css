@@ -105,6 +105,11 @@
   font-size: 16px;
 }
 
+/* I've defined a custom attribute called "state" that is supposed to set the color of the note content div text (inside the contenteditable div) */
+#note-content[state="disabled"] h4 {
+  color: #999;
+}
+
 /* Set the color and font style for the placeholder text */
 #note-content:empty:before {
   content: attr(placeholder);
