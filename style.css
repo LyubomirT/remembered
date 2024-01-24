@@ -158,8 +158,8 @@ button:disabled {
 #toolbar button {
   padding: 5px 10px; /* Reduced padding */
   border: none;
-  background-color: #333;
-  color: white;
+  background: none;
+  color: rgb(26, 26, 26);
   cursor: pointer;
   outline: none;
 }
