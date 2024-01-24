@@ -75,11 +75,12 @@
   background-color: #ddd;
 }
 
-/* Set the flex, padding and overflow for the edit area */
+/* Set the flex, padding, overflow, and order for the edit area */
 #edit-area {
   flex: 1;
   padding: 10px;
   overflow-y: auto;
+  order: 1; /* Change the order to move it below the toolbar */
 }
 
 /* Set the width, padding, border, outline and margin for the note title input */
@@ -91,10 +92,10 @@
   margin-bottom: 10px;
 }
 
-/* Set the width, height, padding, border, outline and resize for the note content div */
+/* Set the width, height, padding, border, outline, and resize for the note content div */
 #note-content {
   width: 100%;
-  height: calc(100vh - 180px);
+  height: calc(100vh - 210px); /* Adjusted height considering the reduced toolbar height */
   padding: 10px;
   border: 1px solid #ccc;
   outline: none;
@@ -143,9 +144,9 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* Set the height, background color, border and display for the toolbar */
+/* Set the height, background color, border, and display for the toolbar */
 #toolbar {
-  height: 60px;
+  height: 30px; /* Reduced height */
   background-color: #f0f0f0;
   border-bottom: 1px solid #ccc;
   display: flex;
@@ -153,9 +154,9 @@ button:disabled {
   justify-content: space-around;
 }
 
-/* Set the padding, border, background color, color, cursor and outline for the toolbar buttons */
+/* Set the padding, border, background color, color, cursor, and outline for the toolbar buttons */
 #toolbar button {
-  padding: 10px 20px;
+  padding: 5px 10px; /* Reduced padding */
   border: none;
   background-color: #333;
   color: white;
@@ -165,5 +166,5 @@ button:disabled {
 
 /* Set the font size for the toolbar button icons */
 #toolbar button i {
-  font-size: 20px;
+  font-size: 16px; /* Reduced font size */
 }
