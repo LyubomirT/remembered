@@ -1,116 +1,132 @@
+/* Set the font family and size for the whole document */
 * {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+/* Set the margin and padding to zero for the whole document */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
 }
 
-#titlebar {
+/* Set the background color and height for the title bar */
+#title-bar {
+  background-color: #333;
+  height: 30px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 30px;
-  background-color: #333;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Set the color, font size and margin for the title bar icon */
+#title-bar i {
   color: white;
-  -webkit-app-region: drag;
-}
-
-#title {
-  margin-left: 10px;
-}
-
-#controls {
-  display: flex;
+  font-size: 20px;
   margin-right: 10px;
 }
 
-#controls button {
-  width: 30px;
-  height: 30px;
-  border: none;
-  background-color: transparent;
+/* Set the color and font weight for the title bar text */
+#title-bar span {
   color: white;
-  cursor: pointer;
-  -webkit-app-region: no-drag;
+  font-weight: bold;
 }
 
-#controls button:hover {
-  background-color: #555;
-}
-
-#close-btn:hover {
-  background-color: #f00;
-}
-
-#container {
+/* Set the height and display for the main container */
+#main-container {
+  height: calc(100vh - 90px);
   display: flex;
-  height: calc(100vh - 30px);
 }
 
+/* Set the width, background color, overflow and border for the note list */
 #note-list {
   width: 200px;
-  background-color: #eee;
+  background-color: #f0f0f0;
+  overflow-y: auto;
+  border-right: 1px solid #ccc;
+}
+
+/* Set the padding, cursor and border for the note items */
+.note-item {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Set the font weight and margin for the note title */
+.note-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Set the color and font size for the note date */
+.note-date {
+  color: #999;
+  font-size: 14px;
+}
+
+/* Set the background color for the selected note item */
+.note-item.selected {
+  background-color: #ddd;
+}
+
+/* Set the flex, padding and overflow for the edit area */
+#edit-area {
+  flex: 1;
+  padding: 10px;
   overflow-y: auto;
 }
 
-#new-note-btn {
+/* Set the width, padding, border, outline and margin for the note title input */
+#note-title {
   width: 100%;
-  height: 40px;
-  border: none;
-  background-color: #ddd;
-  color: #333;
-  cursor: pointer;
-}
-
-#new-note-btn:hover {
-  background-color: #ccc;
-}
-
-#note-items {
-  list-style: none;
-}
-
-.note-item {
   padding: 10px;
-  border-bottom: 1px solid #ccc;
-  cursor: pointer;
+  border: 1px solid #ccc;
+  outline: none;
+  margin-bottom: 10px;
 }
 
-.note-item:hover {
-  background-color: #ddd;
-}
-
-.note-item.selected {
-  background-color: #bbb;
-}
-
-#note-area {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
+/* Set the width, height, padding, border, outline and resize for the note content textarea */
 #note-content {
-  flex: 1;
-  resize: none;
+  width: 100%;
+  height: calc(100vh - 180px);
   padding: 10px;
-  font-size: 16px;
+  border: 1px solid #ccc;
+  outline: none;
+  resize: none;
+}
+
+/* Set the height, background color and display for the button bar */
+#button-bar {
+  height: 60px;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* Set the padding, border, background color, color, cursor and outline for the buttons */
+button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
   outline: none;
 }
 
-#note-actions {
-  display: flex;
-  height: 40px;
+/* Set the font size and margin for the button icons */
+button i {
+  font-size: 20px;
+  margin-right: 10px;
 }
 
-#note-actions button {
-  flex: 1;
-  border: none;
-  background-color: #ddd;
-  color: #333;
-  cursor: pointer;
-}
-
-#note-actions button:hover {
-  background-color: #ccc;
+/* Set the background color and cursor for the disabled buttons */
+button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
 }

@@ -1,105 +1,98 @@
 // Import modules
-const { app, BrowserWindow, ipcMain } = require('electron');
-const path = require('path');
-const fs = require('fs');
+const { app, BrowserWindow, ipcMain } = require('electron')
+const fs = require('fs')
+const path = require('path')
 
-// Initialize variables
-let mainWindow = null; // The main window object
-let dataFile = 'notes.json'; // The data file path
+// Create a global variable to store the notes data
+let notesData = []
 
-if (!fs.existsSync(dataFile)) {
-  // Create an empty data file
-  fs.writeFile(dataFile, '[]', err => {
-    if (err) {
-      console.error(err);
-    }
-  });
+// Define a function to load the notes data from the JSON file
+function loadNotesData() {
+  // Get the path of the JSON file
+  const filePath = path.join(app.getPath('userData'), 'notetaker.json')
+  // Check if the file exists
+  try {
+    // Read the file and parse the JSON data
+    notesData = JSON.parse(fs.readFileSync(filePath))
+  } catch (error) {
+    // If the file does not exist or is invalid, use an empty array
+    notesData = []
+  }
 }
 
-// Create the main window
+// Define a function to save the notes data to the JSON file
+function saveNotesData() {
+  // Get the path of the JSON file
+  const filePath = path.join(app.getPath('userData'), 'notetaker.json')
+  // Write the JSON data to the file
+  fs.writeFileSync(filePath, JSON.stringify(notesData))
+}
+
+// Define a function to create the main window
 function createWindow() {
   // Create a new browser window
-  mainWindow = new BrowserWindow({
+  const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
       nodeIntegration: true,
-      contextIsolation: false // I need to use this in the renderer.js after all
+      contextIsolation: false,
     },
-    frame: false // Remove the default frame
-  });
+  })
 
   // Load the index.html file
-  mainWindow.loadFile('index.html');
+  win.loadFile('index.html')
 
-  // Open the devtools (optional)
-  // mainWindow.webContents.openDevTools();
-
-  // Handle the window closed event
-  mainWindow.on('closed', () => {
-    mainWindow = null;
-  });
+  // Open the dev tools (optional)
+  // win.webContents.openDevTools()
 }
 
-// Handle the app ready event
+// Load the notes data when the app is ready
 app.whenReady().then(() => {
-  // Create the main window
-  createWindow();
+  loadNotesData()
+  createWindow()
+})
 
-  // Load the notes from the data file and send them to the renderer process
-  loadNotes();
-
-  // Handle the app activate event (for macOS)
-  app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
-      createWindow();
-    }
-  });
-});
-
-// Handle the app window all closed event
+// Quit the app when all windows are closed
 app.on('window-all-closed', () => {
-  // Quit the app (for non-macOS)
   if (process.platform !== 'darwin') {
-    app.quit();
+    app.quit()
   }
-});
+})
 
-// Load the notes from the data file and send them to the renderer process
-function loadNotes() {
-  // Check if the data file exists
-  if (fs.existsSync(dataFile)) {
-    // Read the data file
-    fs.readFile(dataFile, (err, data) => {
-      if (err) {
-        console.error(err);
-      } else {
-        // Parse the data as JSON
-        let notes = JSON.parse(data);
-
-        // Send the notes to the renderer process
-        mainWindow.webContents.send('load-notes', notes);
-      }
-    });
-  } else {
-    // Create an empty data file
-    fs.writeFile(dataFile, '[]', err => {
-      if (err) {
-        console.error(err);
-      }
-    });
+// Create a new window if none are open (macOS only)
+app.on('activate', () => {
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createWindow()
   }
-}
+})
 
-// Handle the save-notes event from the renderer process
-ipcMain.on('save-notes', (event, notes) => {
-  // Stringify the notes array as JSON
-  let data = JSON.stringify(notes);
+// Handle the request from the renderer process to get the notes data
+ipcMain.handle('get-notes', (event) => {
+  // Return the notes data
+  return notesData
+})
 
-  // Write the data to the data file
-  fs.writeFile(dataFile, data, err => {
-    if (err) {
-      console.error(err);
-    }
-  });
-});
+// Handle the request from the renderer process to add a new note
+ipcMain.handle('add-note', (event, note) => {
+  // Add the note to the notes data array
+  notesData.push(note)
+  // Save the notes data to the JSON file
+  saveNotesData()
+})
+
+// Handle the request from the renderer process to update an existing note
+ipcMain.handle('update-note', (event, index, note) => {
+  // Update the note in the notes data array
+  notesData[index] = note
+  // Save the notes data to the JSON file
+  saveNotesData()
+})
+
+// Handle the request from the renderer process to delete an existing note
+ipcMain.handle('delete-note', (event, index) => {
+  // Delete the note from the notes data array
+  notesData.splice(index, 1)
+  // Save the notes data to the JSON file
+  saveNotesData()
+})

@@ -1,33 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Note App</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-</head>
-<body>
-  <div id="titlebar">
-    <div id="title">Note App</div>
-    <div id="controls">
-      <button id="minimize-btn"><i class="fas fa-window-minimize"></i></button>
-      <button id="maximize-btn"><i class="far fa-window-maximize"></i></button>
-      <button id="close-btn"><i class="fas fa-times"></i></button>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Note Taker</title>
+    <!-- Load the Font Awesome icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <!-- Load the style.css file -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Create a div element for the title bar -->
+    <div id="title-bar">
+      <i class="fas fa-sticky-note"></i>
+      <span>Note Taker</span>
     </div>
-  </div>
-  <div id="container">
-    <div id="note-list">
-      <button id="new-note-btn"><i class="fas fa-plus"></i> New Note</button>
-      <ul id="note-items"></ul>
-    </div>
-    <div id="note-area">
-      <textarea id="note-content" placeholder="Write your note here..."></textarea>
-      <div id="note-actions">
-        <button id="save-note-btn"><i class="fas fa-save"></i> Save</button>
-        <button id="delete-note-btn"><i class="fas fa-trash"></i> Delete</button>
+    <!-- Create a div element for the main container -->
+    <div id="main-container">
+      <!-- Create a div element for the note list -->
+      <div id="note-list"></div>
+      <!-- Create a div element for the edit area -->
+      <div id="edit-area">
+        <!-- Create an input element for the note title -->
+        <input id="note-title" type="text" placeholder="Note Title" />
+        <!-- Create a textarea element for the note content -->
+        <textarea id="note-content" placeholder="Note Content"></textarea>
       </div>
     </div>
-  </div>
-  <script src="renderer.js"></script>
-</body>
+    <!-- Create a div element for the button bar -->
+    <div id="button-bar">
+      <!-- Create a button element for the new note -->
+      <button id="new-note-button">
+        <i class="fas fa-plus"></i>
+        <span>New Note</span>
+      </button>
+      <!-- Create a button element for the save note -->
+      <button id="save-note-button" disabled>
+        <i class="fas fa-save"></i>
+        <span>Save Note</span>
+      </button>
+      <!-- Create a button element for the delete note -->
+      <button id="delete-note-button" disabled>
+        <i class="fas fa-trash"></i>
+        <span>Delete Note</span>
+      </button>
+    </div>
+    <!-- Load the renderer.js file -->
+    <script src="renderer.js"></script>
+  </body>
 </html>
