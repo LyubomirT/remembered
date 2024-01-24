@@ -1,42 +1,40 @@
-/* General styles */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: Arial, sans-serif;
 }
 
-/* Title bar styles */
-#title-bar {
+#titlebar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 30px;
   background-color: #333;
   color: white;
-  -webkit-app-region: drag; /* Make the title bar draggable */
+  -webkit-app-region: drag;
 }
 
-#app-title {
-  padding: 0 10px;
-  cursor: pointer;
+#title {
+  margin-left: 10px;
 }
 
-#control-buttons {
+#controls {
   display: flex;
+  margin-right: 10px;
 }
 
-#control-buttons button {
+#controls button {
   width: 30px;
   height: 30px;
   border: none;
   background-color: transparent;
   color: white;
   cursor: pointer;
-  -webkit-app-region: no-drag; /*  Make the control buttons not draggable */
+  -webkit-app-region: no-drag;
 }
 
-#control-buttons button:hover {
+#controls button:hover {
   background-color: #555;
 }
 
@@ -44,151 +42,75 @@
   background-color: #f00;
 }
 
-#control-buttons i {
-  font-size: 16px;
-}
-
-/* Container styles */
 #container {
   display: flex;
-  height: calc(100vh - 30px); /* Subtract the title bar height */
+  height: calc(100vh - 30px);
 }
 
-/* Notes list styles */
-#notes-list {
-  width: 300px;
+#note-list {
+  width: 200px;
   background-color: #eee;
   overflow-y: auto;
 }
 
-#search-input {
+#new-note-btn {
   width: 100%;
   height: 40px;
   border: none;
-  padding: 0 10px;
-  font-size: 18px;
+  background-color: #ddd;
+  color: #333;
+  cursor: pointer;
 }
 
-#search-input:focus {
-  outline: none;
+#new-note-btn:hover {
+  background-color: #ccc;
 }
 
-#notes-ul {
+#note-items {
   list-style: none;
 }
 
 .note-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 10px;
   border-bottom: 1px solid #ccc;
   cursor: pointer;
 }
 
-.note-title {
-  font-weight: bold;
-  font-size: 18px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 150px;
-}
-
-.note-desc {
-  font-size: 14px;
-  color: #666;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 150px;
-}
-
-.note-time {
-  font-size: 12px;
-  color: #999;
-}
-
-.note-more {
-  width: 30px;
-  height: 30px;
-  border: none;
-  background-color: transparent;
-  color: #333;
-  cursor: pointer;
-}
-
-.note-more:hover {
+.note-item:hover {
   background-color: #ddd;
 }
 
-/* Editor styles */
-#editor {
+.note-item.selected {
+  background-color: #bbb;
+}
+
+#note-area {
   flex: 1;
-  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+#note-content {
+  flex: 1;
+  resize: none;
   padding: 10px;
-}
-
-#editor-title {
-  width: 100%;
-  height: 40px;
-  border: none;
-  padding: 0 10px;
-  font-size: 24px;
-}
-
-#editor-title:focus {
+  font-size: 16px;
   outline: none;
 }
 
-#format-bar {
+#note-actions {
   display: flex;
-  align-items: center;
   height: 40px;
 }
 
-#format-select {
-  width: 100px;
-  height: 30px;
+#note-actions button {
+  flex: 1;
   border: none;
-  margin-right: 10px;
-}
-
-#format-bar button {
-  width: 30px;
-  height: 30px;
-  border: none;
-  background-color: transparent;
+  background-color: #ddd;
   color: #333;
   cursor: pointer;
 }
 
-#format-bar button:hover {
-  background-color: #ddd;
-}
-
-#editor-content {
-  height: calc(100% - 80px); /* Subtract the title and format bar heights */
-  border: 1px solid #ccc;
-  padding: 10px;
-  font-size: 18px;
-  overflow-y: auto;
-}
-
-#editor-content:focus {
-  outline: none;
-}
-
-/* Code styles */
-code {
-  font-family: "Courier New", monospace;
-  background-color: #f0f0f0;
-  padding: 2px 4px;
-}
-
-pre {
-  font-family: "Courier New", monospace;
-  background-color: #f0f0f0;
-  padding: 10px;
-  overflow-x: auto;
+#note-actions button:hover {
+  background-color: #ccc;
 }
