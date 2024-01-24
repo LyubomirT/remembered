@@ -13,6 +13,11 @@
   box-sizing: border-box;
 }
 
+/* NO TEXT EXCEPT FOR THE NOTE CONTENT AND TITLE SHOULD BE SELECTABLE */
+body *:not(#note-content):not(#note-title) {
+  user-select: none;
+}
+
 /* Set the background color and height for the title bar */
 #title-bar {
   background-color: #333;
