@@ -48,6 +48,7 @@
   background-color: #f0f0f0;
   overflow-y: auto;
   border-right: 1px solid #ccc;
+  list-style: none;
 }
 
 /* Set the padding, cursor and border for the note items */
