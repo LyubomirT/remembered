@@ -91,7 +91,7 @@
   margin-bottom: 10px;
 }
 
-/* Set the width, height, padding, border, outline and resize for the note content textarea */
+/* Set the width, height, padding, border, outline and resize for the note content div */
 #note-content {
   width: 100%;
   height: calc(100vh - 180px);
@@ -99,7 +99,18 @@
   border: 1px solid #ccc;
   outline: none;
   resize: none;
+  background-color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
 }
+
+/* Set the color and font style for the placeholder text */
+#note-content:empty:before {
+  content: attr(placeholder);
+  color: #999;
+  font-style: italic;
+}
+
 
 /* Set the height, background color and display for the button bar */
 #button-bar {
@@ -130,4 +141,29 @@ button i {
 button:disabled {
   background-color: #999;
   cursor: not-allowed;
+}
+
+/* Set the height, background color, border and display for the toolbar */
+#toolbar {
+  height: 60px;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* Set the padding, border, background color, color, cursor and outline for the toolbar buttons */
+#toolbar button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Set the font size for the toolbar button icons */
+#toolbar button i {
+  font-size: 20px;
 }

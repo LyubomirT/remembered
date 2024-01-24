@@ -52,7 +52,7 @@ function renderNoteList() {
 function renderEditArea(note) {
   // Set the value of the note title and content inputs
   noteTitle.value = note.title
-  noteContent.value = note.content
+  noteContent.innerHTML = note.content
   // Enable the save and delete buttons
   saveNoteButton.disabled = false
   deleteNoteButton.disabled = false
@@ -92,7 +92,7 @@ function createNewNote() {
 function getCurrentNote() {
   // Get the value of the note title and content inputs
   const title = noteTitle.value
-  const content = noteContent.value
+  const content = noteContent.innerHTML
   // Get the current date and time
   const date = new Date().toLocaleString()
   // Create a new note object with the current data
@@ -109,7 +109,7 @@ function getCurrentNote() {
 function clearEditArea() {
   // Set the value of the note title and content inputs to empty
   noteTitle.value = ''
-  noteContent.value = ''
+  noteContent.innerHTML = ''
   // Disable the save and delete buttons
   saveNoteButton.disabled = true
   deleteNoteButton.disabled = true
@@ -166,4 +166,34 @@ deleteNoteButton.addEventListener('click', () => {
     // Set the current note index to null
     currentNoteIndex = null
   })
+})
+
+// Get the toolbar button elements
+const boldButton = document.getElementById('bold-button')
+const italicButton = document.getElementById('italic-button')
+const underlineButton = document.getElementById('underline-button')
+const strikeButton = document.getElementById('strike-button')
+
+// Add a click event listener to the bold button
+boldButton.addEventListener('click', () => {
+  // Execute the bold command on the selected text
+  document.execCommand('bold')
+})
+
+// Add a click event listener to the italic button
+italicButton.addEventListener('click', () => {
+  // Execute the italic command on the selected text
+  document.execCommand('italic')
+})
+
+// Add a click event listener to the underline button
+underlineButton.addEventListener('click', () => {
+  // Execute the underline command on the selected text
+  document.execCommand('underline')
+})
+
+// Add a click event listener to the strike button
+strikeButton.addEventListener('click', () => {
+  // Execute the strikeThrough command on the selected text
+  document.execCommand('strikeThrough')
 })

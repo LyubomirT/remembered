@@ -21,13 +21,33 @@
     <div id="main-container">
       <!-- Create a div element for the note list -->
       <div id="note-list"></div>
-      <!-- Create a div element for the edit area -->
-      <div id="edit-area">
-        <!-- Create an input element for the note title -->
-        <input id="note-title" type="text" placeholder="Note Title" />
-        <!-- Create a textarea element for the note content -->
-        <textarea id="note-content" placeholder="Note Content"></textarea>
-      </div>
+<!-- Create a div element for the toolbar -->
+<div id="toolbar">
+  <!-- Create a button element for the bold option -->
+  <button id="bold-button">
+    <i class="fas fa-bold"></i>
+  </button>
+  <!-- Create a button element for the italic option -->
+  <button id="italic-button">
+    <i class="fas fa-italic"></i>
+  </button>
+  <!-- Create a button element for the underline option -->
+  <button id="underline-button">
+    <i class="fas fa-underline"></i>
+  </button>
+  <!-- Create a button element for the strike-through option -->
+  <button id="strike-button">
+    <i class="fas fa-strikethrough"></i>
+  </button>
+</div>
+<!-- Create a div element for the edit area -->
+<div id="edit-area">
+  <!-- Create an input element for the note title -->
+  <input id="note-title" type="text" placeholder="Note Title" />
+  <!-- Create a div element for the note content -->
+  <div id="note-content" contenteditable="true" placeholder="Note Content"></div>
+</div>
+
     </div>
     <!-- Create a div element for the button bar -->
     <div id="button-bar">
