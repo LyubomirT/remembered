@@ -61,6 +61,7 @@ body *:not(#note-content):not(#note-title) {
   padding: 10px;
   cursor: pointer;
   border-bottom: 1px solid #ccc;
+  transition: background-color 0.3s ease-in-out;
 }
 
 /* Set the font weight and margin for the note title */
@@ -108,6 +109,7 @@ body *:not(#note-content):not(#note-title) {
   background-color: white;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 /* I've defined a custom attribute called "state" that is supposed to set the color of the note content div text (inside the contenteditable div) */
@@ -121,7 +123,6 @@ body *:not(#note-content):not(#note-title) {
   color: #999;
   font-style: italic;
 }
-
 
 /* Set the height, background color and display for the button bar */
 #button-bar {
@@ -140,6 +141,7 @@ button {
   color: white;
   cursor: pointer;
   outline: none;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 /* Set the font size and margin for the button icons */
@@ -172,6 +174,7 @@ button:disabled {
   color: rgb(26, 26, 26);
   cursor: pointer;
   outline: none;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 /* Set the font size for the toolbar button icons */
@@ -194,9 +197,12 @@ button:disabled {
   padding: 2px;
   margin-right: 5px;
   color: white;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-#min-button i, #max-button i, #close-button i {
+#min-button i,
+#max-button i,
+#close-button i {
   font-size: 12px;
 }
 
@@ -206,6 +212,7 @@ button:disabled {
 #close-button:hover {
   background-color: #555;
   border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .draggable {
