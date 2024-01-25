@@ -96,3 +96,23 @@ ipcMain.handle('delete-note', (event, index) => {
   // Save the notes data to the JSON file
   saveNotesData()
 })
+
+ipcMain.handle('minimize-window', () => {
+  // Minimize the window
+  BrowserWindow.getFocusedWindow().minimize()
+})
+
+ipcMain.handle('maximize-window', () => {
+  // Maximize the window
+  BrowserWindow.getFocusedWindow().maximize()
+})
+
+ipcMain.handle('unmaximize-window', () => {
+  // Unmaximize the window
+  BrowserWindow.getFocusedWindow().unmaximize()
+})
+
+ipcMain.handle('close-window', () => {
+  // Close the window
+  BrowserWindow.getFocusedWindow().close()
+})
