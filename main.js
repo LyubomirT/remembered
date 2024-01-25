@@ -39,6 +39,8 @@ function createWindow() {
       contextIsolation: false,
     },
     frame: false,
+    minHeight: 400,
+    minWidth: 600,
   })
 
   // Load the index.html file
