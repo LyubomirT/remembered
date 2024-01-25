@@ -11,6 +11,11 @@ const noteContent = document.getElementById('note-content')
 const newNoteButton = document.getElementById('new-note-button')
 const saveNoteButton = document.getElementById('save-note-button')
 const deleteNoteButton = document.getElementById('delete-note-button')
+const minimizeButton = document.getElementById('min-button')
+const maximizeButton = document.getElementById('max-button')
+const closeButton = document.getElementById('close-button')
+
+let isMaximized = false
 
 function lockEverything() {
   noteTitle.disabled = true
@@ -225,4 +230,25 @@ underlineButton.addEventListener('click', () => {
 strikeButton.addEventListener('click', () => {
   // Execute the strikeThrough command on the selected text
   document.execCommand('strikeThrough')
+})
+
+// Add a click event listener to the minimize button
+minimizeButton.addEventListener('click', () => {
+  ipcRenderer.invoke('minimize-window')
+})
+
+// Add a click event listener to the maximize button
+maximizeButton.addEventListener('click', () => {
+  if (isMaximized) {
+    ipcRenderer.invoke('unmaximize-window')
+    isMaximized = false
+  } else {
+    ipcRenderer.invoke('maximize-window')
+    isMaximized = true
+  }
+})
+
+// Add a click event listener to the close button
+closeButton.addEventListener('click', () => {
+  ipcRenderer.invoke('close-window')
 })
