@@ -25,7 +25,6 @@ body *:not(#note-content):not(#note-title) {
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
 }
 
 /* Set the color, font size and margin for the title bar icon */
