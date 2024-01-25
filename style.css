@@ -207,3 +207,9 @@ button:disabled {
   background-color: #555;
   border-radius: 5px;
 }
+
+.draggable {
+  /* Make the window draggable */
+  -webkit-app-region: drag;
+  flex: 1;
+}

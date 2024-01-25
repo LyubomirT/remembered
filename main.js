@@ -38,6 +38,7 @@ function createWindow() {
       nodeIntegration: true,
       contextIsolation: false,
     },
+    frame: false,
   })
 
   // Load the index.html file
