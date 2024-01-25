@@ -33,6 +33,7 @@ body *:not(#note-content):not(#note-title) {
   color: white;
   font-size: 20px;
   margin-right: 10px;
+  margin-left: 10px;
 }
 
 /* Set the color and font weight for the title bar text */
@@ -177,4 +178,33 @@ button:disabled {
 /* Set the font size for the toolbar button icons */
 #toolbar button i {
   font-size: 16px; /* Reduced font size */
+}
+
+.window-controls {
+  /* Move the window controls to the right */
+  margin-left: auto;
+}
+
+/* Set the styles for the window controls */
+#min-button,
+#max-button,
+#close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  margin-right: 5px;
+  color: white;
+}
+
+#min-button i, #max-button i, #close-button i {
+  font-size: 12px;
+}
+
+/* Change color on hover for the window controls */
+#min-button:hover,
+#max-button:hover,
+#close-button:hover {
+  background-color: #555;
+  border-radius: 5px;
 }
