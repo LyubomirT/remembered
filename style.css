@@ -284,3 +284,50 @@ button:hover {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+/* Set the styles for the context menu */
+.context-menu {
+  position: absolute;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.context-menu[state="hidden"] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Set the styles for the context menu buttons */
+.context-menu button {
+  background: none;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Set the styles for the context menu button icons */
+.context-menu button i {
+  font-size: 16px;
+  margin-right: 5px;
+}
+
+/* Add hover effect for the context menu buttons */
+.context-menu button:hover {
+  background-color: #ddd;
+}
+
+/* Add hover effect for the context menu button icons */
+.context-menu button:hover i {
+  color: #333;
+}
