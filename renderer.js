@@ -21,9 +21,7 @@ function lockEverything() {
   noteTitle.disabled = true
   noteContent.disabled = true
   noteContent.contentEditable = false
-  noteContent.innerHTML = `
-    <h4>Open or create a note to get started! If you're feeling lost or confused, check out the official documentation or the handbook guide!</h4>
-  `
+  noteContent.innerHTML = `<h4>Open or create a note to get started! If you're feeling lost or confused, check out the official documentation or the handbook guide!</h4>`
   noteTitle.value = 'Nothing here... for now!'
   // Set the custom "state" attribute to "disabled"
   noteTitle.setAttribute('state', 'disabled')
@@ -251,4 +249,11 @@ maximizeButton.addEventListener('click', () => {
 // Add a click event listener to the close button
 closeButton.addEventListener('click', () => {
   ipcRenderer.invoke('close-window')
+})
+
+// Add an input event listener to the note content for dynamic resizing
+noteContent.addEventListener('input', () => {
+  // Adjust the height of the note content div based on its scroll height
+  noteContent.style.height = 'auto'
+  noteContent.style.height = noteContent.scrollHeight + 'px'
 })
