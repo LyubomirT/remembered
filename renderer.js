@@ -90,6 +90,7 @@ function renderEditArea(note) {
   // Enable the save and delete buttons
   saveNoteButton.disabled = false
   deleteNoteButton.disabled = false
+  adjustStuff()
 }
 
 // Define a function to highlight the selected note item
