@@ -237,3 +237,19 @@ button:disabled {
   -webkit-app-region: drag;
   flex: 1;
 }
+
+/* Add hover effect for note items */
+.note-item:hover {
+  background-color: #ddd;
+}
+
+/* Add hover effect for buttons */
+button:hover {
+  background-color: #555;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Add hover effect for toolbar buttons */
+#toolbar button:hover {
+  background-color: #ccc;
+}
