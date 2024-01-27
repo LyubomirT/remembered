@@ -18,6 +18,7 @@ const helpButton = document.getElementById('help-button')
 const contextMenuHelp = document.getElementById('context-menu-help')
 const ctmnHelp = document.getElementById('ctmn-bg-help')
 const githubButton = document.getElementById('github-button')
+const aboutButton = document.getElementById('about-button')
 
 function adjustStuff(){
   noteContent.style.height = 'auto'
@@ -302,4 +303,8 @@ document.getElementById('handbook-button').addEventListener('click', () => {
 
 githubButton.addEventListener('click', () => {
   ipcRenderer.invoke('open-link', 'https://github.com/LyubomirT/remembered')
+})
+
+aboutButton.addEventListener('click', () => {
+  ipcRenderer.invoke('not-implemented')
 })

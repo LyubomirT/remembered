@@ -140,3 +140,11 @@ ipcMain.handle('open-link', (event, link) => {
   // Open the link in the user's default browser
   shell.openExternal(link)
 })
+
+ipcMain.handle('not-implemented', () => {
+  // This function is called when a feature is not implemented
+  // Get the current window
+  const win = BrowserWindow.getFocusedWindow()
+  // Load the not-implemented.html file
+  win.loadFile('not-implemented.html')
+})
