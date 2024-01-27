@@ -49,3 +49,39 @@ Take a look at this image:
 ![RememberED](assets/formatting.png)
 
 You can see that the text in the note is formatted differently. This is because we have a formatting toolbar, which you can use to customize your text. It currently supports some basic text formatting. The toolbar is pretty self-explanatory, so I won't go into much detail here.
+
+### In-App Help
+
+If you're stuck somewhere, you can always click on the "Help" button in the bottom right-hand corner. This will open a context menu with some useful links, redirecting you to the information you need. We'll be adding more links in the future, so stay tuned!
+
+### Contributing
+
+Since this is a work in progress, we'd love to see your contributions! If you want to contribute, you can do so by forking the repository and creating a pull request. We'll review it and merge it if it's good enough. If you want to contribute, but don't know where to start, you can check out the [issues](https://github.com/LyubomirT/remembered/issues) page for some ideas. If you have any questions, feel free to contact us via email or open an issue.
+
+### License
+
+We're using the GPL-3.0 license for this project. You can read more about it [here](LICENSE).
+
+### Credits
+
+#### Handbook
+
+- [Github Markdown CSS](https://github.com/sindresorhus/github-markdown-css)
+- [Font Awesome](https://fontawesome.com/)
+- [Markdown-it](https://github.com/markdown-it/markdown-it)
+
+#### RememberED
+
+- [Electron](https://www.electronjs.org/)
+- [Node.js](https://nodejs.org/en/)
+- [Font Awesome](https://fontawesome.com/)
+
+#### Contributors
+
+<a href="https://github.com/LyubomirT/remembered/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=LyubomirT/remembered" />
+</a>
+
+### Contact Us
+
+Currently, you can contact us (well, just me for now) via email at [ternavski103@gmail.com](mailto:ternavski103@gmail.com) or Discord at `@lyubomirt`. We'll be adding more ways to contact us in the future, including a dedicated chat on our website, which is currently in development.
