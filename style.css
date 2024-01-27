@@ -166,7 +166,6 @@ button {
 /* Set the font size and margin for the button icons */
 button i {
   font-size: 20px;
-  margin-right: 10px;
 }
 
 /* Set the background color and cursor for the disabled buttons */
@@ -255,3 +254,33 @@ button:hover {
 #toolbar button:hover {
   background-color: #ccc;
 }
+
+/* The help button should be on the bottom-right corner (absolute position) */
+#help-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #333;
+  color: white;
+  border-radius: 30px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Set the font size for the help button icon */
+#help-button i {
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+/* Add hover effect for the help button */
+#help-button:hover {
+  background-color: #555;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
