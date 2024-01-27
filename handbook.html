@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Note Taker</title>
+        <!-- Load the Font Awesome icons -->
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" />
+        <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+        <!-- Load the style.css file -->
+        <link rel="stylesheet" href="handbook.css" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <!-- Create a div element for the title bar -->
+        <div id="title-bar">
+        <div class="draggable">
+            <i class="fas fa-sticky-note"></i>
+            <span>RememberED</span>
+        </div>
+        <div class="window-controls">
+            <button id="min-button" class="window-control">
+            <!-- We need to use the classic icons -->
+            <i class="far fa-window-minimize"></i>
+            </button>
+            <button id="max-button" class="window-control">
+            <i class="far fa-window-maximize"></i>
+            </button>
+            <button id="close-button" class="window-control">
+            <i class="fas fa-times"></i>
+            </button>
+        </div>
+        </div>
+        <!-- Create a div element for the main container -->
+        <div id="main-container">
+        <!-- Create a div element for the contents section with anchor tags -->
+        <div id="contents">
+            <a href="#introduction">Introduction</a>
+            <a href="#features">Features</a>
+            <a href="#installation">Installation</a>
+            <a href="#usage">Usage</a>
+            <a href="#credits">Credits</a>
+            <a href="#license">License</a>
+        </div>
+        <!-- Create a div element for the handbook -->
+        <div id="handbook">
+            <div class="markdown-content">
+            # Introduction
+            </div>
+            <div class="markdown-content">
+            # Features
+            </div>
+            <div class="markdown-content">
+            # Installation
+            </div>
+            <div class="markdown-content">
+            # Usage
+            </div>
+            <div class="markdown-content">
+            # Credits
+            </div>
+            <div class="markdown-content">
+            # License
+            </div>
+        </div>
+        </div>
+        <!-- Create a div element for the button bar -->
+        <div id="back-button">
+        <!-- Create a button element for the back button -->
+        <button id="back-button">
+            <i class="fas fa-arrow-left"></i>
+            <span>Back</span>
+        </button>
+        </div>
+        <!-- Load the script.js file -->
+        <script src="handbook.js"></script>
+    </body>
+
+</html>
+
+            
+</html>

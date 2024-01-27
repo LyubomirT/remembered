@@ -292,3 +292,9 @@ ctmnHelp.addEventListener('click', () => {
     ctmnHelp.setAttribute('state', 'hidden')
   }
 })
+
+// In the help context menu, add a click event listener to the "Handbook" button
+document.getElementById('handbook-button').addEventListener('click', () => {
+  // Open the handbook in the default browser
+  ipcRenderer.invoke('open-handbook')
+})
