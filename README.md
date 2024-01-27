@@ -1,6 +1,6 @@
 # RememberED
 
-Welcome to RememberED, a desktop application that helps you note stuff down and remember them later,, with enabled formatting options and several other customization tools. It is optimized for use via a clean GUI, written in Node.js and Electron. Soon enough, we'll also support features like voice recognition and sticky notes!
+Welcome to RememberED, a desktop application that helps you note stuff down and remember them later, with enabled formatting options and several other customization tools. It is optimized for use via a clean GUI, written in Node.js and Electron. Soon enough, we'll also support features like voice recognition and sticky notes!
 
 ![RememberED](assets/banner.png)
 

@@ -1,5 +1,5 @@
 // Import modules
-const { app, BrowserWindow, ipcMain } = require('electron')
+const { app, BrowserWindow, ipcMain, shell } = require('electron')
 const fs = require('fs')
 const path = require('path')
 
@@ -134,4 +134,9 @@ ipcMain.handle('open-main', () => {
   const win = BrowserWindow.getFocusedWindow()
   // Load the index.html file
   win.loadFile('index.html')
+})
+
+ipcMain.handle('open-link', (event, link) => {
+  // Open the link in the user's default browser
+  shell.openExternal(link)
 })

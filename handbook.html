@@ -8,11 +8,13 @@
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" />
         <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <!-- Load the style.css file -->
-        <link rel="stylesheet" href="handbook.css" />
         <link rel="stylesheet" href="style.css" />
+        <!-- Github Markdown CSS -->
+        <link rel="stylesheet" type="text/css" href="github-markdown.css" />
+        <link rel="stylesheet" href="handbook.css" />
     </head>
     <body>
         <!-- Create a div element for the title bar -->
@@ -46,25 +48,7 @@
             <a href="#license">License</a>
         </div>
         <!-- Create a div element for the handbook -->
-        <div id="handbook">
-            <div class="markdown-content">
-            # Introduction
-            </div>
-            <div class="markdown-content">
-            # Features
-            </div>
-            <div class="markdown-content">
-            # Installation
-            </div>
-            <div class="markdown-content">
-            # Usage
-            </div>
-            <div class="markdown-content">
-            # Credits
-            </div>
-            <div class="markdown-content">
-            # License
-            </div>
+        <div id="handbook" class="markdown-body">
         </div>
         </div>
         <!-- Create a div element for the button bar -->
