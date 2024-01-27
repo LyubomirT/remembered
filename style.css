@@ -35,6 +35,11 @@ body *:not(#note-content):not(#note-title) {
   user-select: none;
 }
 
+body {
+  transform: scale(1);
+  transition:all cubic-bezier(1, 0, 0, 1) 0.3s;
+}
+
 /* Set the background color and height for the title bar */
 #title-bar {
   background-color: #333;

@@ -297,14 +297,23 @@ ctmnHelp.addEventListener('click', () => {
 
 // In the help context menu, add a click event listener to the "Handbook" button
 document.getElementById('handbook-button').addEventListener('click', () => {
+  document.body.style.transform = 'scale(0)'
   // Open the handbook in the default browser
-  ipcRenderer.invoke('open-handbook')
+  setTimeout(() => {
+    ipcRenderer.invoke('open-handbook')
+  }, 400)
 })
 
 githubButton.addEventListener('click', () => {
-  ipcRenderer.invoke('open-link', 'https://github.com/LyubomirT/remembered')
+  document.body.style.transform = 'scale(0)'
+  setTimeout(() => {
+    ipcRenderer.invoke('open-link', 'https://github.com/LyubomirT/remembered')
+  }, 400)
 })
 
 aboutButton.addEventListener('click', () => {
-  ipcRenderer.invoke('not-implemented')
+  document.body.style.transform = 'scale(0)'
+  setTimeout(() => {
+    ipcRenderer.invoke('not-implemented')
+  }, 400)
 })
