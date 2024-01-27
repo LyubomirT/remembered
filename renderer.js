@@ -297,6 +297,9 @@ ctmnHelp.addEventListener('click', () => {
 
 // In the help context menu, add a click event listener to the "Handbook" button
 document.getElementById('handbook-button').addEventListener('click', () => {
+  // Hide the context menu help
+  contextMenuHelp.setAttribute('state', 'hidden')
+  ctmnHelp.setAttribute('state', 'hidden')
   document.body.style.transform = 'scale(0)'
   // Open the handbook in the default browser
   setTimeout(() => {
@@ -305,14 +308,15 @@ document.getElementById('handbook-button').addEventListener('click', () => {
 })
 
 githubButton.addEventListener('click', () => {
-  document.body.style.transform = 'scale(0)'
-  setTimeout(() => {
-    ipcRenderer.invoke('open-link', 'https://github.com/LyubomirT/remembered')
-  }, 400)
+  contextMenuHelp.setAttribute('state', 'hidden')
+  ctmnHelp.setAttribute('state', 'hidden')
+  ipcRenderer.invoke('open-link', 'https://github.com/LyubomirT/remembered')
 })
 
 aboutButton.addEventListener('click', () => {
   document.body.style.transform = 'scale(0)'
+  contextMenuHelp.setAttribute('state', 'hidden')
+  ctmnHelp.setAttribute('state', 'hidden')
   setTimeout(() => {
     ipcRenderer.invoke('not-implemented')
   }, 400)
