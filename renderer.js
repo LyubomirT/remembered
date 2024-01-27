@@ -15,6 +15,11 @@ const minimizeButton = document.getElementById('min-button')
 const maximizeButton = document.getElementById('max-button')
 const closeButton = document.getElementById('close-button')
 
+function adjustStuff(){
+  noteContent.style.height = 'auto'
+  noteContent.style.height = noteContent.scrollHeight + 'px'
+}
+
 let isMaximized = false
 
 function lockEverything() {
@@ -114,6 +119,7 @@ function createNewNote() {
     date: date,
   }
   unlockEverything()
+  adjustStuff()
   // Return the new note
   return note
 }
@@ -132,6 +138,7 @@ function getCurrentNote() {
     date: date,
   }
   // Return the current note
+  adjustStuff()
   return note
 }
 
@@ -143,6 +150,7 @@ function clearEditArea() {
   // Disable the save and delete buttons
   saveNoteButton.disabled = true
   deleteNoteButton.disabled = true
+  adjustStuff()
 }
 
 // Render the note list when the window loads
@@ -169,6 +177,8 @@ newNoteButton.addEventListener('click', () => {
     renderEditArea(note)
     // Highlight the last note item
     highlightNoteItem(noteList.lastElementChild)
+
+    adjustStuff()
   })
 })
 
@@ -195,6 +205,7 @@ deleteNoteButton.addEventListener('click', () => {
     clearEditArea()
     // Lock everything
     lockEverything()
+    adjustStuff()
     // Set the current note index to null
     currentNoteIndex = null
   })
@@ -254,6 +265,5 @@ closeButton.addEventListener('click', () => {
 // Add an input event listener to the note content for dynamic resizing
 noteContent.addEventListener('input', () => {
   // Adjust the height of the note content div based on its scroll height
-  noteContent.style.height = 'auto'
-  noteContent.style.height = noteContent.scrollHeight + 'px'
+  adjustStuff()
 })
