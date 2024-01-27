@@ -297,18 +297,21 @@ button:hover {
   display: flex;
   flex-direction: column;
   z-index: 3;
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, opacity 0.9s ease-in-out,
+    box-shadow 0.3s ease-in-out;
   opacity: 1;
   pointer-events: all;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   /* Position the context menu in the center of the screen */
   top: calc(50% - 50px);
   left: calc(50% - 50px);
+  transform: scaleY(1);
 }
 
 .context-menu[state="hidden"] {
   opacity: 0;
   pointer-events: none;
+  transform: scaleY(0);
 }
 
 /* Set the styles for the context menu buttons */
@@ -347,7 +350,7 @@ button:hover {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.747);
   z-index: 2;
 }
 

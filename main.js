@@ -119,3 +119,19 @@ ipcMain.handle('close-window', () => {
   // Close the window
   BrowserWindow.getFocusedWindow().close()
 })
+
+ipcMain.handle('open-handbook', () => {
+  // This function basically replaces the current file rendered in the window with the handbook.html file
+  // Get the current window
+  const win = BrowserWindow.getFocusedWindow()
+  // Load the handbook.html file
+  win.loadFile('handbook.html')
+})
+
+ipcMain.handle('open-main', () => {
+  // This function basically replaces the current file rendered in the window with the index.html file
+  // Get the current window
+  const win = BrowserWindow.getFocusedWindow()
+  // Load the index.html file
+  win.loadFile('index.html')
+})
