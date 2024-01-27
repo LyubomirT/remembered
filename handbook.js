@@ -30,3 +30,18 @@ backButton.addEventListener('click', () => {
     ipcRenderer.invoke('open-main')
     }
 )
+
+const handbook = document.getElementById('handbook')
+
+// We need to use markdown-it to render the markdown text
+const md = window.markdownit()
+
+for (let i = 0; i < handbook.children.length; i++) {
+    // Get the current element
+    const element = handbook.children[i]
+    // Check if the element is a div
+    if (element.tagName === 'DIV') {
+        // Render the markdown text inside the div
+        element.innerHTML = md.render(element.innerHTML)
+    }
+}
