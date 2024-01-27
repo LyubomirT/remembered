@@ -41,6 +41,7 @@ function createWindow() {
     frame: false,
     minHeight: 400,
     minWidth: 600,
+    icon: path.join(__dirname, 'assets/icon.png')
   })
 
   // Load the index.html file
