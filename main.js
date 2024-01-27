@@ -9,7 +9,7 @@ let notesData = []
 // Define a function to load the notes data from the JSON file
 function loadNotesData() {
   // Get the path of the JSON file
-  const filePath = path.join(app.getPath('userData'), 'notetaker.json')
+  const filePath = 'notetaker.json'
   // Check if the file exists
   try {
     // Read the file and parse the JSON data
@@ -23,7 +23,7 @@ function loadNotesData() {
 // Define a function to save the notes data to the JSON file
 function saveNotesData() {
   // Get the path of the JSON file
-  const filePath = path.join(app.getPath('userData'), 'notetaker.json')
+  const filePath = 'notetaker.json'
   // Write the JSON data to the file
   fs.writeFileSync(filePath, JSON.stringify(notesData))
 }
