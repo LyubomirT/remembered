@@ -14,6 +14,9 @@ const deleteNoteButton = document.getElementById('delete-note-button')
 const minimizeButton = document.getElementById('min-button')
 const maximizeButton = document.getElementById('max-button')
 const closeButton = document.getElementById('close-button')
+const helpButton = document.getElementById('help-button')
+const contextMenuHelp = document.getElementById('context-menu-help')
+const ctmnHelp = document.getElementById('ctmn-bg-help')
 
 function adjustStuff(){
   noteContent.style.height = 'auto'
@@ -267,4 +270,25 @@ closeButton.addEventListener('click', () => {
 noteContent.addEventListener('input', () => {
   // Adjust the height of the note content div based on its scroll height
   adjustStuff()
+})
+
+// Add a click event listener to the help button
+helpButton.addEventListener('click', () => {
+  // Show the context menu help
+  if (contextMenuHelp.getAttribute('state') === 'hidden') {
+    contextMenuHelp.removeAttribute('state')
+    ctmnHelp.removeAttribute('state')
+  } else {
+    contextMenuHelp.setAttribute('state', 'hidden')
+    ctmnHelp.setAttribute('state', 'hidden')
+  }
+})
+
+ctmnHelp.addEventListener('click', () => {
+  // If the context menu help is visible
+  if (contextMenuHelp.getAttribute('state') !== 'hidden') {
+    // Hide the context menu help
+    contextMenuHelp.setAttribute('state', 'hidden')
+    ctmnHelp.setAttribute('state', 'hidden')
+  }
 })

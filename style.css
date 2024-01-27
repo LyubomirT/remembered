@@ -42,6 +42,7 @@ body *:not(#note-content):not(#note-title) {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 5;
 }
 
 /* Set the color, font size and margin for the title bar icon */
@@ -50,12 +51,14 @@ body *:not(#note-content):not(#note-title) {
   font-size: 20px;
   margin-right: 10px;
   margin-left: 10px;
+  z-index: inherit;
 }
 
 /* Set the color and font weight for the title bar text */
 #title-bar span {
   color: white;
   font-weight: bold;
+  z-index: inherit;
 }
 
 /* Set the height and display for the main container */
@@ -286,17 +289,21 @@ button:hover {
 
 /* Set the styles for the context menu */
 .context-menu {
-  position: absolute;
+  position: fixed;
   background-color: #f0f0f0;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 5px;
   display: flex;
   flex-direction: column;
-  z-index: 1;
+  z-index: 3;
   transition: all 0.3s ease-in-out;
   opacity: 1;
   pointer-events: all;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  /* Position the context menu in the center of the screen */
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
 }
 
 .context-menu[state="hidden"] {
@@ -314,6 +321,7 @@ button:hover {
   display: flex;
   align-items: center;
   transition: all 0.3s ease-in-out;
+  color:rgb(65, 65, 65);
 }
 
 /* Set the styles for the context menu button icons */
@@ -330,4 +338,20 @@ button:hover {
 /* Add hover effect for the context menu button icons */
 .context-menu button:hover i {
   color: #333;
+}
+
+.ctmn-bg {
+  /* Set the styles for the context menu background */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.ctmn-bg[state="hidden"] {
+  /* Hide the context menu background */
+  display: none;
 }
