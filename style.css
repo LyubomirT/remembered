@@ -4,6 +4,23 @@
   font-size: 16px;
 }
 
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #666;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
 /* Set the margin and padding to zero for the whole document */
 *,
 *::before,
@@ -219,26 +236,4 @@ button:disabled {
   /* Make the window draggable */
   -webkit-app-region: drag;
   flex: 1;
-}
-
-/* Add custom scrollbars */
-#note-list::-webkit-scrollbar,
-#note-content::-webkit-scrollbar {
-  width: 12px;
-}
-
-#note-list::-webkit-scrollbar-thumb,
-#note-content::-webkit-scrollbar-thumb {
-  background-color: #666;
-  border-radius: 10px;
-}
-
-#note-list::-webkit-scrollbar-track,
-#note-content::-webkit-scrollbar-track {
-  background-color: #f0f0f0;
-}
-
-#note-list::-webkit-scrollbar-thumb:hover,
-#note-content::-webkit-scrollbar-thumb:hover {
-  background-color: #555;
 }
