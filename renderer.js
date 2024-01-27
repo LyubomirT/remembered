@@ -17,6 +17,7 @@ const closeButton = document.getElementById('close-button')
 const helpButton = document.getElementById('help-button')
 const contextMenuHelp = document.getElementById('context-menu-help')
 const ctmnHelp = document.getElementById('ctmn-bg-help')
+const githubButton = document.getElementById('github-button')
 
 function adjustStuff(){
   noteContent.style.height = 'auto'
@@ -297,4 +298,8 @@ ctmnHelp.addEventListener('click', () => {
 document.getElementById('handbook-button').addEventListener('click', () => {
   // Open the handbook in the default browser
   ipcRenderer.invoke('open-handbook')
+})
+
+githubButton.addEventListener('click', () => {
+  ipcRenderer.invoke('open-link', 'https://github.com/LyubomirT/remembered')
 })
