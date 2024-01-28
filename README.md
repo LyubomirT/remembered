@@ -78,6 +78,7 @@ We're using the GPL-3.0 license for this project. You can read more about it [he
 
 #### Contributors
 
+
 <a href="https://github.com/LyubomirT/remembered/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=LyubomirT/remembered" />
 </a>
