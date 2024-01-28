@@ -1,7 +1,7 @@
-const {ipcRenderer} = require('electron')
+const {ipcRenderer} = require('electron');
 
-const backBtn = document.getElementById('back-button')
+const backBtn = document.getElementById('back-button');
 
 backBtn.addEventListener('click', () => {
-    ipcRenderer.invoke('open-main')
-})
+    ipcRenderer.invoke('open-main');
+});

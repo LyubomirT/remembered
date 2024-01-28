@@ -1,31 +1,31 @@
 // Import modules
-const { app, BrowserWindow, ipcMain, shell } = require('electron')
-const fs = require('fs')
-const path = require('path')
+const { app, BrowserWindow, ipcMain, shell } = require('electron');
+const fs = require('fs');
+const path = require('path');
 
 // Create a global variable to store the notes data
-let notesData = []
+let notesData = [];
 
 // Define a function to load the notes data from the JSON file
 function loadNotesData() {
   // Get the path of the JSON file
-  const filePath = 'notetaker.json'
+  const filePath = 'notetaker.json';
   // Check if the file exists
   try {
     // Read the file and parse the JSON data
-    notesData = JSON.parse(fs.readFileSync(filePath))
+    notesData = JSON.parse(fs.readFileSync(filePath));
   } catch (error) {
     // If the file does not exist or is invalid, use an empty array
-    notesData = []
+    notesData = [];
   }
 }
 
 // Define a function to save the notes data to the JSON file
 function saveNotesData() {
   // Get the path of the JSON file
-  const filePath = 'notetaker.json'
+  const filePath = 'notetaker.json';
   // Write the JSON data to the file
-  fs.writeFileSync(filePath, JSON.stringify(notesData))
+  fs.writeFileSync(filePath, JSON.stringify(notesData));
 }
 
 // Define a function to create the main window
@@ -42,110 +42,110 @@ function createWindow() {
     minHeight: 400,
     minWidth: 600,
     icon: path.join(__dirname, 'assets/icon.png')
-  })
+  });
 
   // Load the index.html file
-  win.loadFile('index.html')
+  win.loadFile('index.html');
 
   // Open the dev tools (optional)
-  // win.webContents.openDevTools()
+  // win.webContents.openDevTools();
 }
 
 // Load the notes data when the app is ready
 app.whenReady().then(() => {
-  loadNotesData()
-  createWindow()
-})
+  loadNotesData();
+  createWindow();
+});
 
 // Quit the app when all windows are closed
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
-    app.quit()
+    app.quit();
   }
-})
+});
 
 // Create a new window if none are open (macOS only)
 app.on('activate', () => {
   if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow()
+    createWindow();
   }
-})
+});
 
 // Handle the request from the renderer process to get the notes data
 ipcMain.handle('get-notes', (event) => {
   // Return the notes data
-  return notesData
-})
+  return notesData;
+});
 
 // Handle the request from the renderer process to add a new note
 ipcMain.handle('add-note', (event, note) => {
   // Add the note to the notes data array
-  notesData.push(note)
+  notesData.push(note);
   // Save the notes data to the JSON file
-  saveNotesData()
-})
+  saveNotesData();
+});
 
 // Handle the request from the renderer process to update an existing note
 ipcMain.handle('update-note', (event, index, note) => {
   // Update the note in the notes data array
-  notesData[index] = note
+  notesData[index] = note;
   // Save the notes data to the JSON file
-  saveNotesData()
-})
+  saveNotesData();
+});
 
 // Handle the request from the renderer process to delete an existing note
 ipcMain.handle('delete-note', (event, index) => {
   // Delete the note from the notes data array
-  notesData.splice(index, 1)
+  notesData.splice(index, 1);
   // Save the notes data to the JSON file
-  saveNotesData()
-})
+  saveNotesData();
+});
 
 ipcMain.handle('minimize-window', () => {
   // Minimize the window
-  BrowserWindow.getFocusedWindow().minimize()
-})
+  BrowserWindow.getFocusedWindow().minimize();
+});
 
 ipcMain.handle('maximize-window', () => {
   // Maximize the window
-  BrowserWindow.getFocusedWindow().maximize()
-})
+  BrowserWindow.getFocusedWindow().maximize();
+});
 
 ipcMain.handle('unmaximize-window', () => {
   // Unmaximize the window
-  BrowserWindow.getFocusedWindow().unmaximize()
-})
+  BrowserWindow.getFocusedWindow().unmaximize();
+});
 
 ipcMain.handle('close-window', () => {
   // Close the window
-  BrowserWindow.getFocusedWindow().close()
-})
+  BrowserWindow.getFocusedWindow().close();
+});
 
 ipcMain.handle('open-handbook', () => {
   // This function basically replaces the current file rendered in the window with the handbook.html file
   // Get the current window
-  const win = BrowserWindow.getFocusedWindow()
+  const win = BrowserWindow.getFocusedWindow();
   // Load the handbook.html file
-  win.loadFile('handbook.html')
-})
+  win.loadFile('handbook.html');
+});
 
 ipcMain.handle('open-main', () => {
   // This function basically replaces the current file rendered in the window with the index.html file
   // Get the current window
-  const win = BrowserWindow.getFocusedWindow()
+  const win = BrowserWindow.getFocusedWindow();
   // Load the index.html file
-  win.loadFile('index.html')
-})
+  win.loadFile('index.html');
+});
 
 ipcMain.handle('open-link', (event, link) => {
   // Open the link in the user's default browser
-  shell.openExternal(link)
-})
+  shell.openExternal(link);
+});
 
 ipcMain.handle('not-implemented', () => {
   // This function is called when a feature is not implemented
   // Get the current window
-  const win = BrowserWindow.getFocusedWindow()
+  const win = BrowserWindow.getFocusedWindow();
   // Load the not-implemented.html file
-  win.loadFile('not-implemented.html')
-})
+  win.loadFile('not-implemented.html');
+});
