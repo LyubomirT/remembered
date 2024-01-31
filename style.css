@@ -409,8 +409,8 @@ button:hover {
 
 /* Set the background color for the selected note item in dark mode */
 .note-item.selected[colorstate="dark"] {
-  background-color: #555;
-  border-left: 5px solid #222;
+  background-color: #292929;
+  border-left: 5px solid #ffffff;
 }
 
 /* Set the background color for the main container in dark mode */
