@@ -19,6 +19,7 @@ const contextMenuHelp = document.getElementById('context-menu-help');
 const ctmnHelp = document.getElementById('ctmn-bg-help');
 const githubButton = document.getElementById('github-button');
 const aboutButton = document.getElementById('about-button');
+const themeButton = document.getElementById('theme-button');
 
 function adjustStuff() {
   noteContent.style.height = 'auto';
@@ -37,6 +38,22 @@ function lockEverything() {
   noteTitle.setAttribute('state', 'disabled');
   noteContent.setAttribute('state', 'disabled');
 }
+
+function switchTheme() {
+  if (themeButton.getAttribute('state') === 'light') {
+    themeButton.setAttribute('state', 'dark');
+    document.body.setAttribute('state', 'dark');
+    themeButton.innerHTML = `<i class="fas fa-sun"></i>`;
+  } else {
+    themeButton.setAttribute('state', 'light');
+    document.body.setAttribute('state', 'light');
+    themeButton.innerHTML = `<i class="fas fa-moon"></i>`;
+  }
+}
+
+themeButton.addEventListener('click', () => {
+  switchTheme();
+});
 
 lockEverything();
 
