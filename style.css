@@ -216,7 +216,8 @@ button:disabled {
 /* Set the styles for the window controls */
 #min-button,
 #max-button,
-#close-button {
+#close-button,
+#theme-button {
   background: none;
   border: none;
   cursor: pointer;
@@ -228,14 +229,16 @@ button:disabled {
 
 #min-button i,
 #max-button i,
-#close-button i {
+#close-button i,
+#theme-button i{
   font-size: 12px;
 }
 
 /* Change color on hover for the window controls */
 #min-button:hover,
 #max-button:hover,
-#close-button:hover {
+#close-button:hover,
+#theme-button:hover {
   background-color: #555;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
