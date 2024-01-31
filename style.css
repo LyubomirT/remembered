@@ -367,3 +367,176 @@ button:hover {
   display: none;
 }
 
+
+/* Set the background color and height for the title bar in dark mode */
+#title-bar[colorstate="dark"] {
+  background-color: #222;
+}
+
+/* Set the color, font size, and margin for the title bar icon in dark mode */
+#title-bar[colorstate="dark"] i {
+  color: #fff;
+}
+
+/* Set the color and font weight for the title bar text in dark mode */
+#title-bar[colorstate="dark"] span {
+  color: #fff;
+}
+
+/* Set the background color and overflow for the note list in dark mode */
+#note-list[colorstate="dark"] {
+  background-color: #222;
+  border-right: 1px solid #444;
+}
+
+/* Set the color, border, and background for the note items in dark mode */
+.note-item[colorstate="dark"] {
+  border-bottom: 1px solid #444;
+  background-color: #333;
+}
+
+/* Set the font weight and margin for the note title in dark mode */
+.note-title[colorstate="dark"] {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+/* Set the color for the note date in dark mode */
+.note-date[colorstate="dark"] {
+  color: #999;
+}
+
+/* Set the background color for the selected note item in dark mode */
+.note-item.selected[colorstate="dark"] {
+  background-color: #555;
+  border-left: 5px solid #222;
+}
+
+/* Set the background color for the main container in dark mode */
+#main-container[colorstate="dark"] {
+  background-color: #222;
+}
+
+/* Set the background color and border for the note content in dark mode */
+#note-content[colorstate="dark"] {
+  background-color: #333;
+  border: 1px solid #444;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  color: white;
+}
+
+/* Set the color for disabled state in dark mode */
+#note-content[state="disabled"][colorstate="dark"] h4 {
+  color: #999;
+}
+
+/* Set the color for the placeholder text in dark mode */
+#note-content[colorstate="dark"]:empty:before {
+  color: #999;
+}
+
+/* Set the background color for the button bar in dark mode */
+#button-bar[colorstate="dark"] {
+  background-color: #222;
+}
+
+/* Set the background color for buttons in dark mode */
+button[colorstate="dark"] {
+  background-color: #444;
+}
+
+/* Set the color for buttons in dark mode */
+button[colorstate="dark"]:not(:disabled) {
+  color: #fff;
+}
+
+/* Set the background color for the toolbar in dark mode */
+#toolbar[colorstate="dark"] {
+  background-color: #222;
+}
+
+/* Set the color for toolbar buttons in dark mode */
+#toolbar button[colorstate="dark"] {
+  color: #fff;
+}
+
+/* Set the background color for the window controls in dark mode */
+#min-button[colorstate="dark"],
+#max-button[colorstate="dark"],
+#close-button[colorstate="dark"],
+#theme-button[colorstate="dark"] {
+  background: none;
+}
+
+/* Change color on hover for the window controls in dark mode */
+#min-button[colorstate="dark"]:hover,
+#max-button[colorstate="dark"]:hover,
+#close-button[colorstate="dark"]:hover,
+#theme-button[colorstate="dark"]:hover {
+  background-color: #333;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
+}
+
+/* Set the background color for the help button in dark mode */
+#help-button[colorstate="dark"] {
+  background-color: #222;
+}
+
+/* Set the color for the help button icon in dark mode */
+#help-button[colorstate="dark"] i {
+  color: #fff;
+}
+
+/* Add hover effect for the help button in dark mode */
+#help-button[colorstate="dark"]:hover {
+  background-color: #333;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
+}
+
+/* Set the background color for the context menu in dark mode */
+.context-menu[colorstate="dark"] {
+  background-color: #333;
+  border: 1px solid #444;
+}
+
+/* Set the color for context menu buttons in dark mode */
+.context-menu button[colorstate="dark"] {
+  color: #fff;
+}
+
+/* Add hover effect for the context menu buttons in dark mode */
+.context-menu button[colorstate="dark"]:hover {
+  background-color: #444;
+}
+
+/* Add hover effect for the context menu button icons in dark mode */
+.context-menu button[colorstate="dark"]:hover i {
+  color: #fff;
+}
+
+/* Set the background color for the context menu background in dark mode */
+.ctmn-bg[colorstate="dark"] {
+  background-color: rgba(0, 0, 0, 0.747);
+}
+
+#note-title[colorstate="dark"] {
+  border: 1px solid #444;
+  background-color: #333;
+  color: white;
+}
+
+#note-title[colorstate="dark"]:focus {
+  border: 1px solid #444;
+  background-color: #333;
+  color: white;
+}
+
+#note-title[colorstate="dark"]::placeholder {
+  color: #999;
+}
+
+#note-title[colorstate="dark"]:disabled {
+  background-color: #333;
+  color: #999;
+}

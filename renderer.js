@@ -44,11 +44,21 @@ function switchTheme() {
   if (themeButton.getAttribute('colorstate') === 'dark') {
     themeButton.removeAttribute('colorstate');
     document.body.removeAttribute('colorstate');
+    // Apply that to all elements too
+    const allElements = document.getElementsByTagName('*');
+    for (let element of allElements) {
+      element.removeAttribute('colorstate');
+    }
     themeButton.innerHTML = `<i class="fas fa-moon"></i>`;
   }
   else {
     themeButton.setAttribute('colorstate', 'dark');
     document.body.setAttribute('colorstate', 'dark');
+    // Apply that to all elements too
+    const allElements = document.getElementsByTagName('*');
+    for (let element of allElements) {
+      element.setAttribute('colorstate', 'dark');
+    }
     themeButton.innerHTML = `<i class="fas fa-sun"></i>`;
   }
 }
