@@ -39,15 +39,17 @@ function lockEverything() {
   noteContent.setAttribute('state', 'disabled');
 }
 
+// We have the "state" attribute to keep track of the theme. If it's "dark", it's the dark theme. If there is no "state" attribute, it's the light theme.
 function switchTheme() {
-  if (themeButton.getAttribute('state') === 'light') {
-    themeButton.setAttribute('state', 'dark');
-    document.body.setAttribute('state', 'dark');
-    themeButton.innerHTML = `<i class="fas fa-sun"></i>`;
-  } else {
-    themeButton.removeAttribute('state');
-    document.body.removeAttribute('state');
+  if (themeButton.getAttribute('colorstate') === 'dark') {
+    themeButton.removeAttribute('colorstate');
+    document.body.removeAttribute('colorstate');
     themeButton.innerHTML = `<i class="fas fa-moon"></i>`;
+  }
+  else {
+    themeButton.setAttribute('colorstate', 'dark');
+    document.body.setAttribute('colorstate', 'dark');
+    themeButton.innerHTML = `<i class="fas fa-sun"></i>`;
   }
 }
 
