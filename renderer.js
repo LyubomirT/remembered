@@ -45,8 +45,8 @@ function switchTheme() {
     document.body.setAttribute('state', 'dark');
     themeButton.innerHTML = `<i class="fas fa-sun"></i>`;
   } else {
-    themeButton.setAttribute('state', 'light');
-    document.body.setAttribute('state', 'light');
+    themeButton.removeAttribute('state');
+    document.body.removeAttribute('state');
     themeButton.innerHTML = `<i class="fas fa-moon"></i>`;
   }
 }
