@@ -2,3 +2,7 @@ package-lock.json
 node_modules/
 notes.json
 notetaker.json
+# ignore attr for yarn files
+*.yarn
+*.lock
+*yarnrc.yml
