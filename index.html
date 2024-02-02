@@ -1,109 +1,109 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Note Taker</title>
-    <!-- Load the Font Awesome icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
-    <!-- Load the style.css file -->
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- Create a div element for the title bar -->
-    <div id="title-bar">
-      <div class="draggable">
-        <i class="fas fa-sticky-note"></i>
-        <span>RememberED</span>
-      </div>
-      <div class="window-controls">
-        <button id="theme-button" class="window-control">
-          <i class="fas fa-moon"></i>
-        </button>
-        <button id="min-button" class="window-control">
-          <!-- We need to use the classic icons -->
-          <i class="far fa-window-minimize"></i>
-        </button>
-        <button id="max-button" class="window-control">
-          <i class="far fa-window-maximize"></i>
-        </button>
-        <button id="close-button" class="window-control">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-    </div>
-    <!-- Create a div element for the main container -->
-    <div id="main-container">
-      <!-- Create a div element for the note list -->
-      <div id="note-list"></div>
-<!-- Create a div element for the edit area -->
-<div id="edit-area">
-  <!-- Create an input element for the note title -->
-  <input id="note-title" type="text" placeholder="Note Title" />
-  <!-- Create a div element for the toolbar -->
-<div id="toolbar">
-  <!-- Create a button element for the bold option -->
-  <button id="bold-button">
-    <i class="fas fa-bold"></i>
-  </button>
-  <!-- Create a button element for the italic option -->
-  <button id="italic-button">
-    <i class="fas fa-italic"></i>
-  </button>
-  <!-- Create a button element for the underline option -->
-  <button id="underline-button">
-    <i class="fas fa-underline"></i>
-  </button>
-  <!-- Create a button element for the strike-through option -->
-  <button id="strike-button">
-    <i class="fas fa-strikethrough"></i>
-  </button>
-</div>
-  <!-- Create a div element for the note content -->
-  <div id="note-content" contenteditable="true" placeholder="Note Content"></div>
-</div>
 
+<head>
+  <meta charset="UTF-8" />
+  <title>Note Taker</title>
+  <!-- Load the Font Awesome icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <!-- Load the style.css file -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Create a div element for the title bar -->
+  <div id="title-bar">
+    <div class="draggable">
+      <i class="fas fa-sticky-note"></i>
+      <span>RememberED</span>
     </div>
-    <!-- Create a div element for the button bar -->
-    <div id="button-bar">
-      <!-- Create a button element for the new note -->
-      <button id="new-note-button">
-        <i class="fas fa-plus"></i>
-        <span>New Note</span>
+    <div class="window-controls">
+      <button id="theme-button" class="window-control">
+        <i class="fas fa-moon"></i>
       </button>
-      <!-- Create a button element for the save note -->
-      <button id="save-note-button" disabled>
-        <i class="fas fa-save"></i>
-        <span>Save Note</span>
+      <button id="min-button" class="window-control">
+        <!-- We need to use the classic icons -->
+        <i class="far fa-window-minimize"></i>
       </button>
-      <!-- Create a button element for the delete note -->
-      <button id="delete-note-button" disabled>
-        <i class="fas fa-trash"></i>
-        <span>Delete Note</span>
+      <button id="max-button" class="window-control">
+        <i class="far fa-window-maximize"></i>
+      </button>
+      <button id="close-button" class="window-control">
+        <i class="fas fa-times"></i>
       </button>
     </div>
-    <button id="help-button">
-      <i class="fas fa-question"></i>
-    </button>
-    <div class="ctmn-bg" id="ctmn-bg-help" state="hidden"></div>
-      <div class="context-menu" id="context-menu-help" state="hidden">
-        <button id="github-button">
-          <i class="fab fa-github"></i>
-          <span>GitHub Repository</span>
+  </div>
+  <!-- Create a div element for the main container -->
+  <div id="main-container">
+    <!-- Create a div element for the note list -->
+    <div id="note-list"></div>
+    <!-- Create a div element for the edit area -->
+    <div id="edit-area">
+      <!-- Create an input element for the note title -->
+      <input id="note-title" type="text" placeholder="Note Title" />
+      <!-- Create a div element for the toolbar -->
+      <div id="toolbar">
+        <!-- Create a button element for the bold option -->
+        <button id="bold-button">
+          <i class="fas fa-bold"></i>
         </button>
-        <button id="about-button">
-          <i class="fas fa-info-circle"></i>
-          <span>About</span>
+        <!-- Create a button element for the italic option -->
+        <button id="italic-button">
+          <i class="fas fa-italic"></i>
         </button>
-        <button id="handbook-button">
-          <i class="fas fa-book"></i>
-          <span>Handbook</span>
+        <!-- Create a button element for the underline option -->
+        <button id="underline-button">
+          <i class="fas fa-underline"></i>
+        </button>
+        <!-- Create a button element for the strike-through option -->
+        <button id="strike-button">
+          <i class="fas fa-strikethrough"></i>
         </button>
       </div>
+      <!-- Create a div element for the note content -->
+      <div id="note-content" contenteditable="true" placeholder="Note Content"></div>
     </div>
-    <!-- Load the renderer.js file -->
-    <script src="renderer.js"></script>
-  </body>
+
+  </div>
+  <!-- Create a div element for the button bar -->
+  <div id="button-bar">
+    <!-- Create a button element for the new note -->
+    <button id="new-note-button">
+      <i class="fas fa-plus"></i>
+      <span>New Note</span>
+    </button>
+    <!-- Create a button element for the save note -->
+    <button type="button" id="save-note-button" disabled>
+      <i class="fas fa-save"></i>
+      <span>Save Note</span>
+    </button>
+    <!-- Create a button element for the delete note -->
+    <button id="delete-note-button" disabled>
+      <i class="fas fa-trash"></i>
+      <span>Delete Note</span>
+    </button>
+  </div>
+  <button id="help-button">
+    <i class="fas fa-question"></i>
+  </button>
+  <div class="ctmn-bg" id="ctmn-bg-help" state="hidden"></div>
+  <div class="context-menu" id="context-menu-help" state="hidden">
+    <button id="github-button">
+      <i class="fab fa-github"></i>
+      <span>GitHub Repository</span>
+    </button>
+    <button id="about-button">
+      <i class="fas fa-info-circle"></i>
+      <span>About</span>
+    </button>
+    <button id="handbook-button">
+      <i class="fas fa-book"></i>
+      <span>Handbook</span>
+    </button>
+  </div>
+  </div>
+  <!-- Load the renderer.js file -->
+  <script src="renderer.js"></script>
+</body>
+
 </html>
