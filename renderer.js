@@ -113,6 +113,7 @@ function renderNoteList() {
         unlockEverything();
       });
     }
+    highlightNoteItem(noteList.children[currentNoteIndex]);
   });
 }
 
@@ -130,14 +131,14 @@ function renderEditArea(note) {
 // Define a function to highlight the selected note item
 function highlightNoteItem(li) {
   // Get all the note items
-  const noteItems = document.getElementsByClassName("note-item");
+  const noteItems = document.getElementsByClassName('note-item');
   // Loop through the note items
   for (let item of noteItems) {
     // Remove the selected class from the item
-    item.classList.remove("selected");
+    item.classList.remove('selected');
   }
   // Add the selected class to the list item
-  li.classList.add("selected");
+  li.classList.add('selected');
 }
 
 // Define a function to create a new note
@@ -197,7 +198,6 @@ window.addEventListener("load", () => {
 titleBar.addEventListener("click", () => {
   ipcRenderer.send("minimize-window");
 });
-
 // Add a click event listener to the new note button
 newNoteButton.addEventListener("click", () => {
   // Create a new note
@@ -207,7 +207,8 @@ newNoteButton.addEventListener("click", () => {
     // Render the note list
     renderNoteList();
     // Set the current note index to the last index
-    currentNoteIndex = noteList.childElementCount - 1;
+    // removed the  - 1 which caused the current node index to be set to second last element 
+    currentNoteIndex = noteList.childElementCount;
     // Render the edit area with the new note
     renderEditArea(note);
     // Highlight the last note item
@@ -232,6 +233,7 @@ saveNoteButton.addEventListener("click", () => {
   ipcRenderer.invoke("update-note", currentNoteIndex, note).then(() => {
     // Render the note list
     renderNoteList();
+    noteList.children[currentNoteIndex].classList.toggle('selected')
     // checking if any input was focused or not
     activeNode ? activeNode.focus() : null;
     // Highlight the current note item
